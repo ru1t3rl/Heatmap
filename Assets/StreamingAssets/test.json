@@ -1,0 +1,229 @@
+{
+  "startTimestamp": "2023-10-29T19:40:08.7579388+01:00",
+  "dataPoints": [
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "0001-01-01T00:00:00",
+      "value": null,
+      "eventType": null
+    },
+    {
+      "timestamp": "2023-10-29T19:40:10.4791603+01:00",
+      "value": {
+        "x": -3.46,
+        "y": 0.3,
+        "z": -3.55
+      },
+      "eventType": 1
+    },
+    {
+      "timestamp": "2023-10-29T19:40:24.0813986+01:00",
+      "value": {
+        "colliderName": null,
+        "collisionPoint": {
+          "x": 6.03,
+          "y": 0.300000072,
+          "z": -15.8359995
+        }
+      },
+      "eventType": 0
+    },
+    {
+      "timestamp": "2023-10-29T19:40:24.7207923+01:00",
+      "value": {
+        "colliderName": null,
+        "collisionPoint": {
+          "x": 5.84,
+          "y": 0.3000001,
+          "z": -16.09
+        }
+      },
+      "eventType": 0
+    },
+    {
+      "timestamp": "2023-10-29T19:40:36.7686339+01:00",
+      "value": {
+        "colliderName": null,
+        "collisionPoint": {
+          "x": 4.780233,
+          "y": -2.48331332,
+          "z": 7.69846725
+        }
+      },
+      "eventType": 0
+    },
+    {
+      "timestamp": "2023-10-29T19:40:41.5040681+01:00",
+      "value": {
+        "colliderName": null,
+        "collisionPoint": {
+          "x": 2.21400261,
+          "y": -0.0399762765,
+          "z": 5.45989275
+        }
+      },
+      "eventType": 0
+    },
+    {
+      "timestamp": "2023-10-29T19:40:42.0448044+01:00",
+      "value": {
+        "colliderName": null,
+        "collisionPoint": {
+          "x": 2.260008,
+          "y": -0.03999921,
+          "z": 5.4699955
+        }
+      },
+      "eventType": 0
+    },
+    {
+      "timestamp": "2023-10-29T19:40:43.9123363+01:00",
+      "value": {
+        "colliderName": null,
+        "collisionPoint": {
+          "x": 2.21200013,
+          "y": -0.03999898,
+          "z": 5.15999746
+        }
+      },
+      "eventType": 0
+    }
+  ],
+  "Path": "StreamingAssets/test.json",
+  "name": "Path",
+  "hideFlags": 0
+}

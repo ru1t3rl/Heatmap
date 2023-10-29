@@ -1,21 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.LowLevel;
 
 namespace Ru1t3rl.StateRecorder.Recorders
 {
     public abstract class IntervalRecorder : BaseDataRecorder
     {
-        [SerializeField] private bool recordOnAwake = true;
         [SerializeField] private float interval = .5f;
         private Coroutine recordRoutine = null;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            if (!recordOnAwake) return;
-            Play();
-        }
 
         public override void Play()
         {

@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 55358495854334574}
   - component: {fileID: 7229707904077656524}
   - component: {fileID: 7229707904077656525}
+  - component: {fileID: 7229707904077656526}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -698,9 +699,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c91a236741445dcb0132fde0eef028a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: StreamingAssets/position-test.json
+  recording: {fileID: 11400000, guid: b9f8e8184a08a8046b6f167af78b319c, type: 2}
   recordOnAwake: 1
   interval: 0.5
+--- !u!114 &7229707904077656526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232170738362345666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29beb840819a43b994533fd4483706a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recording: {fileID: 11400000, guid: b9f8e8184a08a8046b6f167af78b319c, type: 2}
+  recordOnAwake: 1
+  logOnCollisionEnter: 1
+  logOnCollisionStay: 0
+--- !u!1001 &8631379538087429136
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7318683384735596837, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318683384735596837, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318683384735596837, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318683384735596837, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318683384735596837, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318683384735596837, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318683384735596837, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318683384735596837, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318683384735596837, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318683384735596837, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909048462150595, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
+      propertyPath: m_Name
+      value: Position Recorder Cube
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b31170c82be1914c9bcf23c9cf6af68, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -711,3 +785,4 @@ SceneRoots:
   - {fileID: 3412919219970064890}
   - {fileID: 256424780}
   - {fileID: 1766323435}
+  - {fileID: 8631379538087429136}

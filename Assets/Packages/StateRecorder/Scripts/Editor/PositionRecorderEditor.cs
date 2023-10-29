@@ -4,7 +4,7 @@ using UnityEditor;
 namespace Ru1t3rl.StateRecorder.Editor
 {
     [CustomEditor(typeof(PositionRecorder))]
-    public class PositionRecorderEditor : BaseDataRecorderEditor
+    public class PositionRecorderEditor : BaseDatRecorderEditor
     {
     }
 }

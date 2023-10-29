@@ -1,24 +1,29 @@
-﻿using Ru1t3rl.StateRecorder.Utilities;
+﻿using System.Threading.Tasks;
+using Ru1t3rl.StateRecorder.Utilities;
 using UnityEngine;
 
 namespace Ru1t3rl.StateRecorder.Recorders
 {
     public abstract class BaseDataRecorder : MonoBehaviour
     {
-        [SerializeField] protected string path;
+        [SerializeField] protected Recording recording;
+        [SerializeField] protected bool recordOnAwake = true;
 
         protected DataWriter writer;
-        protected Recording recording;
 
         private RecorderState state = RecorderState.Idle;
         public RecorderState State => state;
 
         protected virtual void Awake()
         {
-            writer = new DataWriter(path);
-            recording = new Recording();
+            writer = new DataWriter(recording.Path);
+
+            if (!recordOnAwake) return;
+            Play();
+            
+            Debug.Log("StartEd");
         }
-        
+
         public virtual void Play()
         {
             state = RecorderState.Playing;
@@ -39,6 +44,6 @@ namespace Ru1t3rl.StateRecorder.Recorders
             writer.OverwriteFileContent(recording);
         }
 
-        protected abstract void RecordData();
+        protected abstract Task RecordData();
     }
 }

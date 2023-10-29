@@ -6,7 +6,7 @@ using Application = UnityEngine.Device.Application;
 namespace Ru1t3rl.StateRecorder.Editor
 {
     [CustomEditor(typeof(BaseDataRecorder))]
-    public class BaseDataRecorderEditor : UnityEditor.Editor
+    public class BaseDatRecorderEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {

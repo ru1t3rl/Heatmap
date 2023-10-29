@@ -35,10 +35,7 @@ namespace Ru1t3rl.StateRecorder.Utilities
 
 
             await writer.FlushAsync();
-            writer.Close();
             await writer.DisposeAsync();
-            fileStream.Close();
-            await fileStream.FlushAsync();
             await fileStream.DisposeAsync();
         }
 
@@ -50,9 +47,7 @@ namespace Ru1t3rl.StateRecorder.Utilities
             await writer.WriteAsync(JsonConvert.SerializeObject(value));
 
             await writer.FlushAsync();
-            writer.Close();
             await writer.DisposeAsync();
-            fileStream.Close();
             await fileStream.FlushAsync();
             await fileStream.DisposeAsync();
         }
@@ -68,8 +63,6 @@ namespace Ru1t3rl.StateRecorder.Utilities
 
             await writer.FlushAsync();
             await writer.DisposeAsync();
-            writer.Close();
-            fileStream.Close();
             await fileStream.FlushAsync();
             await fileStream.DisposeAsync();
         }
