@@ -1,0 +1,42 @@
+name: Publish Package
+on: 
+  push:
+    branches:
+      - develop
+
+permissions:
+  packages: write
+  contents: write
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name:  'Automated Version Bump'
+      uses:  'phips28/gh-action-bump-version@master'
+      env:
+        GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+      with:
+        commit-message: 'ci: bumps version to {{version}} [skip ci]'
+
+    - name: 'Get Previous tag'
+      id: previoustag
+      uses: "WyriHaximus/github-action-get-previous-tag@v1"
+    
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@octocat'
+        
+    - run: npm publish
+      working-directory: 'Assets/Packages/Heatmap'
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+
+    - run: npm publish
+      working-directory: 'Assets/Packages/StateRecorder'
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
