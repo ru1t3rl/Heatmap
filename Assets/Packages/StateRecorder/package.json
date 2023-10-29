@@ -1,7 +1,7 @@
 {
 	"name": "com.ru1t3rl.datarecording",
 	"displayName": "Data Recorder",
-	"version": "1.0.0",
+	"version": "1.0.3",
 	"unity": "2022.3.8",
 	"description": "Record data within in your game and write it to a file.",
 	"category": "ru1t3rl",
@@ -10,7 +10,7 @@
 		"email": "lucaruiters@hotmail.nl",
 		"url": "https://lucaruiters.nl"
 	},
-    "publishConfig": {
+	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/@ru1t3rl"
 	},
 	"repository": {

@@ -9,15 +9,19 @@ permissions:
   contents: write
       
 jobs:
-  build:
+  Heatmap:
+    name: 'Release heatmap'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
+    
+    - run: ls 'Assets/Packages/Heatmap'
+    
     - name:  'Automated Version Bump'
       uses:  'phips28/gh-action-bump-version@master'
       env:
         GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        PACKAGEJSON_DIR: 'Assets/Packages/Heatmap'
       with:
         commit-message: 'ci: bumps version to {{version}} [skip ci]'
 
@@ -36,6 +40,30 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
 
+  StateRecorder:
+    name: 'Release state recorder'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name:  'Automated Version Bump'
+      uses:  'phips28/gh-action-bump-version@master'
+      env:
+        GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        PACKAGEJSON_DIR: 'Assets/Packages/StateRecorder'
+      with:
+        commit-message: 'ci: bumps version to {{version}} [skip ci]'
+
+    - name: 'Get Previous tag'
+      id: previoustag
+      uses: "WyriHaximus/github-action-get-previous-tag@v1"
+    
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@octocat'
+        
     - run: npm publish
       working-directory: 'Assets/Packages/StateRecorder'
       env:
