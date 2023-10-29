@@ -22,10 +22,7 @@ jobs:
         PACKAGEJSON_DIR: 'Assets/Packages/Heatmap'
       with:
         commit-message: 'ci: bumps version to {{version}} [skip ci]'
-
-    - name: 'Get Previous tag'
-      id: previoustag
-      uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        skip-tag: 'true'
     
     - uses: actions/setup-node@v1
       with:
@@ -52,10 +49,7 @@ jobs:
         PACKAGEJSON_DIR: 'Assets/Packages/StateRecorder'
       with:
         commit-message: 'ci: bumps version to {{version}} [skip ci]'
-
-    - name: 'Get Previous tag'
-      id: previoustag
-      uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        skip-tag: 'true'
     
     - uses: actions/setup-node@v1
       with:
