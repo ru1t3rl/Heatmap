@@ -16,6 +16,6 @@
 	"repository": {
 		"type": "git",
 		"url": "ssh://git@github.com:ru1t3rl/Heatmap.git",
-		"directory": "Heatmapping"
+		"directory": "com.ru1t3rl.heatmapping"
 	}
 }

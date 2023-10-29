@@ -16,6 +16,6 @@
 	"repository": {
 		"type": "git",
 		"url": "ssh://git@github.com:ru1t3rl/Heatmap.git",
-		"directory": "Data Recording"
+		"directory": "com.ru1t3rl.datarecording"
 	}
 }
