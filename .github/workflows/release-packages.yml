@@ -39,6 +39,7 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
 
   StateRecorder:
+    needs: 'Heatmap'
     name: 'Release state recorder'
     runs-on: ubuntu-latest
     steps:
