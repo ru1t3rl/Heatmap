@@ -1,0 +1,21 @@
+{
+	"name": "com.ru1t3rl.datarecording",
+	"displayName": "Data Recorder",
+	"version": "1.0.0",
+	"unity": "2022.3.8",
+	"description": "Record data within in your game and write it to a file.",
+	"category": "ru1t3rl",
+	"author": {
+		"name": "ru1t3rl",
+		"email": "lucaruiters@hotmail.nl",
+		"url": "https://lucaruiters.nl"
+	},
+    "publishConfig": {
+		"registry": "https://npm.pkg.github.com/@ru1t3rl"
+	},
+	"repository": {
+		"type": "git",
+		"url": "ssh://git@github.com:ru1t3rl/Heatmap.git",
+		"directory": "com.ru1t3rl.datarecording"
+	}
+}
