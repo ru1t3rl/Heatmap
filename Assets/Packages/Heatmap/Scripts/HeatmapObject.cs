@@ -41,15 +41,17 @@ namespace Ru1t3rl.Heatmap
             if (originalTexture == null)
             {
                 originalTexture = new Texture2D(TextureSizeOverride, TextureSizeOverride);
+                originalTexture.name = $"{gameObject.name}_Albedo";
                 originalTexture.SetPixels(originalTexture.GetPixels().Select(_ => Color.white).ToArray());
                 originalTexture.Apply();
             }
 
             heatmapTexture = new Texture2D(originalTexture.width, originalTexture.height);
+            heatmapTexture.name = $"{gameObject.name}_Heatmap"; 
             heatmapTexture.SetPixels(heatmapTexture.GetPixels().Select(_ => Color.clear).ToArray());
             heatmapTexture.Apply();
 
-            ProcessTextures(originalTexture.width, originalTexture.height);
+            SetupCombinedTexture(originalTexture.width, originalTexture.height);
 
             materialPropertyBlock.SetTexture(mainTextureKeyword, combinedTexture);
             renderer.SetPropertyBlock(materialPropertyBlock);
@@ -62,7 +64,7 @@ namespace Ru1t3rl.Heatmap
 
             if (previousTransparency != heatmapTransparency)
             {
-                ProcessTextures(combinedTexture.width, combinedTexture.height);
+                SetupCombinedTexture(combinedTexture.width, combinedTexture.height);
                 previousTransparency = heatmapTransparency;
             }
         }
@@ -189,7 +191,7 @@ namespace Ru1t3rl.Heatmap
             combinedTexture.Apply();
         }
 
-        private void ProcessTextures(int width, int height)
+        private void SetupCombinedTexture(int width, int height)
         {
             if (renderer == null)
                 throw new MissingComponentException(

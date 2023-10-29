@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class NewOverlayHeadmap : MonoBehaviour
 {
-    [SerializeField] private bool drawGizmos;
-
     [SerializeField] private Gradient heatmapGradient;
     [SerializeField] private float colorIncrement = .25f;
     [SerializeField, Range(0f, 1f)] private float blendIntensity = 1f;
     [SerializeField] int drawSize = 5;
 
     private Dictionary<int, Texture2D> _heatmapTextures = new();
-    private List<Vector3> _impactPoints = new();
-
     private void OnCollisionEnter(Collision other)
     {
         UpdateTexture(other);
@@ -35,17 +31,13 @@ public class NewOverlayHeadmap : MonoBehaviour
         Vector2 uv = Vector2.zero;
 
         Vector3 averageNormal = Vector3.zero;
-        Vector3 averagePoint = Vector3.zero;
         collision.contacts.ToList().ForEach(contact =>
         {
-            averagePoint += contact.point;
             averageNormal += contact.normal;
         });
-        averagePoint /= collision.contacts.Length;
         averageNormal /= collision.contacts.Length;
 
         Ray ray = new Ray(transform.position, -averageNormal);
-        Debug.DrawRay(ray.origin, ray.direction, Color.red, 5);
         if (Physics.Raycast(ray, out var hit))
         {
             if (hit.collider is not MeshCollider)
@@ -100,8 +92,7 @@ public class NewOverlayHeadmap : MonoBehaviour
                 }
             }
         }
-
-        _impactPoints.Add(averagePoint);
+        
         heatmapTexture.Apply();
     }
 
@@ -123,15 +114,5 @@ public class NewOverlayHeadmap : MonoBehaviour
         }
 
         _heatmapTextures.Add(other.gameObject.GetInstanceID(), texture);
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (!drawGizmos) return;
-
-        for (int i = 0; i < _impactPoints.Count; i++)
-        {
-            Gizmos.DrawSphere(_impactPoints[i], .5f);
-        }
     }
 }
