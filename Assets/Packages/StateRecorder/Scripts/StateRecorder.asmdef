@@ -1,7 +1,9 @@
 {
     "name": "Ru1t3rl.StateRecorder",
     "rootNamespace": "Ru1t3rl.StateRecorder",
-    "references": [],
+    "references": [
+        "GUID:4b84427fd7ace4b4cb623ef8a46124ed"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
