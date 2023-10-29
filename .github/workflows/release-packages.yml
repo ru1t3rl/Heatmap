@@ -10,16 +10,16 @@ permissions:
       
 jobs:
   Heatmap:
+    name: 'Release heatmap'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    
-    - run: cd 'Assets/Packages/Heatmap'
-    
+    - run: echo 'Assets/Packages/Heatmap'
     - name:  'Automated Version Bump'
       uses:  'phips28/gh-action-bump-version@master'
       env:
         GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        PACKAGEJSON_DIR: 'Assets/Packages/Heatmap'
       with:
         commit-message: 'ci: bumps version to {{version}} [skip ci]'
 
@@ -34,21 +34,21 @@ jobs:
         scope: '@octocat'
         
     - run: npm publish
-      working-directory: ''
+      working-directory: 'Assets/Packages/Heatmap'
       env:
         NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
 
   StateRecorder:
+    name: 'Release state recorder'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    
-    - run: cd 'Assets/Packages/StateRecorder'
     
     - name:  'Automated Version Bump'
       uses:  'phips28/gh-action-bump-version@master'
       env:
         GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        PACKAGEJSON_DIR: 'Assets/Packages/StateRecorder'
       with:
         commit-message: 'ci: bumps version to {{version}} [skip ci]'
 
@@ -63,6 +63,6 @@ jobs:
         scope: '@octocat'
         
     - run: npm publish
-      working-directory: ''
+      working-directory: 'Assets/Packages/StateRecorder'
       env:
         NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
