@@ -1,7 +1,7 @@
 {
 	"name": "com.ru1t3rl.datarecording",
 	"displayName": "Data Recorder",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"unity": "2022.3.8",
 	"description": "Record data within in your game and write it to a file.",
 	"category": "ru1t3rl",
