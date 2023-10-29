@@ -1,5 +1,5 @@
 {
-	"name": "heatmapping",
+	"name": "com.ru1t3rl.heatmapping",
 	"displayName": "Heatmapping",
 	"version": "1.0.4",
 	"unity": "2022.3.8",
@@ -16,6 +16,6 @@
 	"repository": {
 		"type": "git",
 		"url": "ssh://git@github.com:ru1t3rl/Heatmap.git",
-		"directory": "com.ru1t3rl.heatmapping"
+		"directory": "Heatmapping"
 	}
 }
