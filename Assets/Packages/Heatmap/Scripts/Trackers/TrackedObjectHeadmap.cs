@@ -139,7 +139,7 @@ namespace Ru1t3rl.Heatmap.Trackers
                     Color.Lerp(
                         originalColor,
                         heatmapColor,
-                        1
+                        heatmapTransparency
                     )
                 );
             }
