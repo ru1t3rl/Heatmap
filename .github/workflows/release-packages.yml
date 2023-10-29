@@ -22,10 +22,7 @@ jobs:
         PACKAGEJSON_DIR: 'Assets/Packages/Heatmap'
       with:
         commit-message: 'ci: bumps version to {{version}} [skip ci]'
-
-    - name: 'Get Previous tag'
-      id: previoustag
-      uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        skip-tag: 'true'
     
     - uses: actions/setup-node@v1
       with:
@@ -39,10 +36,13 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
 
   StateRecorder:
+    needs: 'Heatmap'
     name: 'Release state recorder'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - run: git pull
     
     - name:  'Automated Version Bump'
       uses:  'phips28/gh-action-bump-version@master'
@@ -51,10 +51,7 @@ jobs:
         PACKAGEJSON_DIR: 'Assets/Packages/StateRecorder'
       with:
         commit-message: 'ci: bumps version to {{version}} [skip ci]'
-
-    - name: 'Get Previous tag'
-      id: previoustag
-      uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        skip-tag: 'true'
     
     - uses: actions/setup-node@v1
       with:
