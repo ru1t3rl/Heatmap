@@ -1,0 +1,14 @@
+{
+    "name": "Ru1t3rl.Heatmap",
+    "rootNamespace": "Ru1t3rl.Heatmap",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

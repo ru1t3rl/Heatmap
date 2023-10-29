@@ -1,52 +1,37 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class CollisionHeatmap : MonoBehaviour
+public class NewOverlayHeadmap : MonoBehaviour
 {
     [SerializeField] private bool drawGizmos;
-    [SerializeField] private Material heatmapMaterial;
 
     [SerializeField] private Gradient heatmapGradient;
     [SerializeField] private float colorIncrement = .25f;
     [SerializeField, Range(0f, 1f)] private float blendIntensity = 1f;
     [SerializeField] int drawSize = 5;
-        
-    private Texture2D heatmapTexture;
+
+    private Dictionary<int, Texture2D> _heatmapTextures = new();
     private List<Vector3> _impactPoints = new();
 
-    void Start()
+    private void OnCollisionEnter(Collision other)
     {
-        // Create heatmap texture
-        heatmapTexture = new Texture2D(1024, 1024);
-
-        // Initialize heatmap pixels to zero
-        for (int i = 0; i < heatmapTexture.width; i++)
-        {
-            for (int j = 0; j < heatmapTexture.height; j++)
-            {
-                heatmapTexture.SetPixel(i, j, Color.clear);
-            }
-        }
-
-        // Assign texture to material
-        heatmapMaterial.mainTexture = heatmapTexture;
+        UpdateTexture(other);
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision other)
     {
-        UpdateTexture(collision);
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        UpdateTexture(collision);
+        UpdateTexture(other);
     }
 
     private void UpdateTexture(Collision collision)
     {
+        if (!_heatmapTextures.TryGetValue(collision.gameObject.GetInstanceID(), out var heatmapTexture))
+        {
+            SetupNewCollisionObject(collision, out heatmapTexture);
+        }
+
+
         Vector2 uv = Vector2.zero;
 
         Vector3 averageNormal = Vector3.zero;
@@ -59,11 +44,14 @@ public class CollisionHeatmap : MonoBehaviour
         averagePoint /= collision.contacts.Length;
         averageNormal /= collision.contacts.Length;
 
-        RaycastHit hit;
-        Ray ray = new Ray(averagePoint - averageNormal, averageNormal);
-        if (Physics.Raycast(ray, out hit))
+        Ray ray = new Ray(transform.position, -averageNormal);
+        Debug.DrawRay(ray.origin, ray.direction, Color.red, 5);
+        if (Physics.Raycast(ray, out var hit))
         {
-            if (hit.collider is not MeshCollider) return;
+            if (hit.collider is not MeshCollider)
+            {
+                return;
+            }
 
             uv = hit.textureCoord;
         }
@@ -117,13 +105,33 @@ public class CollisionHeatmap : MonoBehaviour
         heatmapTexture.Apply();
     }
 
+    private void SetupNewCollisionObject(Collision other, out Texture2D texture)
+    {
+        var renderer = other.gameObject.GetComponent<MeshRenderer>();
+        if (renderer == null)
+        {
+            texture = new Texture2D(128, 128);
+            return;
+        }
+
+        texture = renderer.material.mainTexture as Texture2D;
+
+        if (texture == null)
+        {
+            texture = (renderer.material.mainTexture = new Texture2D(1028, 1028)) as Texture2D;
+            texture!.SetPixels(texture.GetPixels().Select(_ => Color.clear).ToArray());
+        }
+
+        _heatmapTextures.Add(other.gameObject.GetInstanceID(), texture);
+    }
+
     private void OnDrawGizmos()
     {
         if (!drawGizmos) return;
 
         for (int i = 0; i < _impactPoints.Count; i++)
         {
-            Gizmos.DrawSphere(_impactPoints[i], .25f);
+            Gizmos.DrawSphere(_impactPoints[i], .5f);
         }
     }
 }
