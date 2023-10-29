@@ -1,7 +1,7 @@
 {
 	"name": "com.ru1t3rl.heatmapping",
 	"displayName": "Heatmapping",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"unity": "2022.3.8",
 	"description": "Easily track objects using heatmaps. The heatmaps are generated realtime.",
 	"category": "ru1t3rl",
